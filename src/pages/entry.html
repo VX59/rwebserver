@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <script>
+
+            function RequestAccessForm() {
+                const RequestAccessForm = document.createElement("form");
+                RequestAccessForm.name = "RequestAccessform";
+                const Email = document.createElement("input");
+                Email.type = "text";
+                Email.placeholder = "Email";
+                const submitemail = document.createElement("input");
+                submitemail.type = "submit";
+                submitemail.value = "submit-email";
+
+                const banner = document.createElement("p");
+                banner.innerHTML = "Request Access";
+
+                document.body.appendChild(banner);
+
+                RequestAccessForm.append(Email);
+                RequestAccessForm.append(submitemail);
+                document.body.appendChild(RequestAccessForm);
+
+            }
+
+            function EntryForm() {
+                const EntryForm = document.createElement("form");
+                EntryForm.name = "EntryForm";
+                const key = document.createElement("input");
+                key.type = "password";
+                key.placeholder = "Authentication Key";
+                const submitkey = document.createElement("input");
+                submitkey.type = "submit";
+                submitkey.value = "submit-key";
+
+                EntryForm.appendChild(key);
+                EntryForm.appendChild(submitkey);
+                
+                document.body.appendChild(EntryForm);
+            }
+
+            function EntryError() {
+                const EntryError = document.createElement("span");
+                EntryError.innerHTML = "Invalid key";
+                document.body.appendChild(EntryError)
+            }
+
+        </script>
+    </head>
+    <body>
+        <script>
+            EntryError();
+            EntryForm();
+            RequestAccessForm();
+        </script>
+    </body>
+
+</html>
