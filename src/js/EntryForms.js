@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 function LoadForms() {
     const EntryForm = document.createElement("form");
     EntryForm.name = "EntryForm";
