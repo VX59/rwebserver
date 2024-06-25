@@ -32,24 +32,27 @@ func viewHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "%s", p.Body)
 }
 
-type Profile struct {
-	Name    string
-	Hobbies []string
+type SoundGroups struct {
+	Name     string
+	Packages []string
 }
 
 func PackageHandler(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(200)
 
-	profile := Profile{"Alex", []string{"snowboarding", "programming"}}
+	// database query
+	groups := SoundGroups{"Sound Groups", []string{"sample beats", "sample instrumentals"}}
 
-	if err := json.NewEncoder(w).Encode(&profile); err != nil {
+	if err := json.NewEncoder(w).Encode(&groups); err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 	}
 }
 
 func main() {
+	http.Handle("/", http.FileServer(http.Dir("js/")))
 	http.HandleFunc("/packages/", PackageHandler)
 	http.HandleFunc("/view/", viewHandler)
 	log.Fatal(http.ListenAndServe(":8081", nil))
+
 }

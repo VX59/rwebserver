@@ -2,26 +2,15 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <script>
-            function Navigator() {
-                const table = document.createElement("ol");
-
-                // get packages here
-
-                // test package
-
-                const testel = document.createElement("el");
-                testel.innerHTML = "sample package";
-
-                table.appendChild(testel);
-                document.body.append(table);
-            }
-        </script>
     </head>
     <body>
-        <p>Home Page</p>
-        <script>
-            Navigator();
+        <h1>Home Page</h1>
+        <h2>Audio Packages</h2>
+        <script type="module" src="./../EntryForms.js">
+        </script>
+        <script type="module">
+            import { PageNavigator } from "./../EntryForms.js";
+            PageNavigator();
         </script>
     </body>
 </html>
